@@ -1,19 +1,13 @@
-
+/* Basic styling for the page */
 body {
   font-family: Arial, sans-serif;
-  background-color: #fbeadf;
-  color: #333;
-}
-
-header {
-  background-color: #ff7b7b;
-  padding: 20px;
-  color: white;
-}
-
-.gallery img {
-  width: 200px;
-  margin: 10px;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 #countdown {
