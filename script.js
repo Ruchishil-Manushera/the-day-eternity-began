@@ -11,11 +11,27 @@ function updateTimeSpent() {
   const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)); // Minutes
   const seconds = Math.floor((diff % (1000 * 60)) / 1000); // Seconds
 
-  // Display the results
-  document.getElementById("days").innerText = "Days: " + days;
-  document.getElementById("hours").innerText = "Hours: " + hours;
-  document.getElementById("minutes").innerText = "Minutes: " + minutes;
-  document.getElementById("seconds").innerText = "Seconds: " + seconds;
+  // Update the display and trigger flip animation
+  updateFlip("days", days);
+  updateFlip("hours", hours);
+  updateFlip("minutes", minutes);
+  updateFlip("seconds", seconds);
+}
+
+function updateFlip(id, newValue) {
+  const element = document.getElementById(id);
+  const front = element.querySelector(".flip-front");
+  const back = element.querySelector(".flip-back");
+
+  // Only update if the value is different
+  if (front.innerText !== newValue.toString()) {
+    back.innerText = newValue;
+    // Trigger the flip animation by adding/removing the class
+    element.classList.remove("flip");
+    setTimeout(() => {
+      element.classList.add("flip");
+    }, 0);
+  }
 }
 
 // Update the time every second
