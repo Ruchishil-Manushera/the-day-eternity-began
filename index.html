@@ -3,85 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Special Day</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #fbeadf;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #ff7b7b;
-      padding: 20px;
-      color: white;
-      font-size: 24px;
-    }
-    #daysCounter {
-      font-size: 20px;
-      margin: 20px 0;
-    }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 20px auto;
-    }
-    .gallery img {
-      margin: 10px;
-      width: 200px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-    .wishes {
-      margin: 20px auto;
-    }
-    audio {
-      display: block;
-      margin: 10px auto;
-    }
-  </style>
+  <title>Time Together</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>Happy Anniversary of Our First Meeting</header>
-
-  <!-- Countdown Timer -->
-<div id="countdown">
-  <h2>Time Together</h2>
-  <div id="timeSpent">
-    <p id="days">Days: 0</p>
-    <p id="hours">Hours: 0</p>
-    <p id="minutes">Minutes: 0</p>
-    <p id="seconds">Seconds: 0</p>
-  </div>
-</div>
-
-  <!-- Photo Gallery -->
-  <div class="gallery">
-    <img src="images/photo1.jpg" alt="Memory 1">
-    <img src="images/photo2.jpg" alt="Memory 2">
-    <img src="images/photo3.jpg" alt="Memory 3">
-    <!-- Add more images as needed -->
+  <div id="countdown">
+    <h2>Time Together</h2>
+    <div id="timeSpent">
+      <p id="days">Days: 0</p>
+      <p id="hours">Hours: 0</p>
+      <p id="minutes">Minutes: 0</p>
+      <p id="seconds">Seconds: 0</p>
+    </div>
   </div>
 
-  <!-- Wishes with Background Music -->
-  <div class="wishes">
-    <p>“Meeting you was the best thing that ever happened to me.”</p>
-    <audio controls>
-      <source src="music/song1.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-
-    <p>“Every moment with you is a treasure I cherish.”</p>
-    <audio controls>
-      <source src="music/song2.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-
-    <!-- Add more wishes and songs -->
-  </div>
+  <script src="script.js"></script>
 </body>
 </html>
