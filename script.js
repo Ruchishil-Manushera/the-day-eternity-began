@@ -3,19 +3,29 @@ const firstMeetDate = new Date("2021-11-28"); // Replace with your actual date
 
 function updateTimeSpent() {
   const now = new Date();
-  const diff = now - firstMeetDate;
+  
+  // Calculate the difference between today and the first meeting date
+  let years = now.getFullYear() - firstMeetDate.getFullYear();
+  let months = now.getMonth() - firstMeetDate.getMonth();
+  let days = now.getDate() - firstMeetDate.getDate();
 
-  // Calculate the difference in days, hours, minutes, and seconds
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24)); // Days
-  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); // Hours
-  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)); // Minutes
-  const seconds = Math.floor((diff % (1000 * 60)) / 1000); // Seconds
+  // Handle negative days calculation by adjusting months and days
+  if (days < 0) {
+    months--;
+    const prevMonth = new Date(now.getFullYear(), now.getMonth() - 1, 0);
+    days += prevMonth.getDate(); // Get the correct number of days in the previous month
+  }
 
-  // Update the display and trigger flip animation
+  // Handle negative months calculation by adjusting years and months
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  // Update the flip timer
+  updateFlip("years", years);
+  updateFlip("months", months);
   updateFlip("days", days);
-  updateFlip("hours", hours);
-  updateFlip("minutes", minutes);
-  updateFlip("seconds", seconds);
 }
 
 function updateFlip(id, newValue) {
@@ -27,16 +37,12 @@ function updateFlip(id, newValue) {
   if (front.innerText !== newValue.toString()) {
     back.innerText = newValue;
     // Trigger the flip animation by adding/removing the class
-    element.classList.add("flip-active");
+    element.classList.remove("flip");
     setTimeout(() => {
-      front.innerText = newValue;
-      element.classList.remove("flip-active");
-    }, 700); // Match the CSS animation duration
+      element.classList.add("flip");
+    }, 0);
   }
 }
 
-// Update the time every second
+// Update the time every day, but for animation, we are updating every second
 setInterval(updateTimeSpent, 1000);
-
-// Initial call to set the timer immediately on page load
-updateTimeSpent();
