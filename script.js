@@ -1,20 +1,21 @@
 // Set the date of your first meeting (e.g., YYYY-MM-DD)
-const firstMeetDate = new Date("2021-11-28"); // Replace with your actual date
+const firstMeetDate = new Date("2021-11-28");
 
-// Function to check if a year is a leap year
+// Check if the year is a leap year
 function isLeapYear(year) {
-  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+  return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
 }
 
-// Update the countdown timer
+// Days in each month (index corresponds to month number - 1)
+function getDaysInMonth(month, year) {
+  const daysInMonth = [31, isLeapYear(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  return daysInMonth[month];
+}
+
 function updateTimeSpent() {
   const now = new Date();
-  const currentYear = now.getFullYear();
-  
-  // Days in each month
-  const daysInMonth = [31, isLeapYear(currentYear) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-  // Calculate the difference
+  // Calculate the elapsed time
   let years = now.getFullYear() - firstMeetDate.getFullYear();
   let months = now.getMonth() - firstMeetDate.getMonth();
   let days = now.getDate() - firstMeetDate.getDate();
@@ -22,7 +23,7 @@ function updateTimeSpent() {
   let minutes = now.getMinutes() - firstMeetDate.getMinutes();
   let seconds = now.getSeconds() - firstMeetDate.getSeconds();
 
-  // Adjust for negative values
+  // Adjust for negative values by borrowing from higher units
   if (seconds < 0) {
     seconds += 60;
     minutes--;
@@ -37,7 +38,8 @@ function updateTimeSpent() {
   }
   if (days < 0) {
     months--;
-    days += daysInMonth[(now.getMonth() - 1 + 12) % 12];
+    const prevMonth = (now.getMonth() - 1 + 12) % 12;
+    days += getDaysInMonth(prevMonth, now.getFullYear());
   }
   if (months < 0) {
     months += 12;
@@ -53,18 +55,19 @@ function updateTimeSpent() {
   updateFlip("seconds", seconds);
 }
 
-// Update flip animation for each element
 function updateFlip(id, newValue) {
   const element = document.getElementById(id);
   const front = element.querySelector(".flip-front");
   const back = element.querySelector(".flip-back");
 
+  // Only update if the value has changed
   if (front.innerText !== newValue.toString()) {
-    back.innerText = newValue;
+    back.innerText = newValue.toString().padStart(2, "0"); // Ensure 2-digit format
     element.classList.remove("flip-active");
     setTimeout(() => {
       element.classList.add("flip-active");
     }, 0);
+    front.innerText = newValue.toString().padStart(2, "0");
   }
 }
 
