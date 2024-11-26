@@ -1,0 +1,17 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fbeadf;
+  color: #333;
+}
+
+header {
+  background-color: #ff7b7b;
+  padding: 20px;
+  color: white;
+}
+
+.gallery img {
+  width: 200px;
+  margin: 10px;
+}
