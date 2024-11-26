@@ -7,7 +7,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   height: 100vh;
+}
+
+header {
+  text-align: center;
+  font-size: 24px;
+  color: #ff7b7b;
+  margin-bottom: 20px;
 }
 
 #countdown {
