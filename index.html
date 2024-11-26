@@ -49,15 +49,15 @@
   <header>Happy Anniversary of Our First Meeting</header>
 
   <!-- Countdown Timer -->
-  <div id="daysCounter"></div>
-  <script>
-    const firstMeet = new Date("2021-11-28"); // Replace with your date (YYYY-MM-DD)
-    setInterval(() => {
-      const now = new Date();
-      const diff = Math.floor((now - firstMeet) / (1000 * 60 * 60 * 24));
-      document.getElementById("daysCounter").innerText = `Days Together: ${diff}`;
-    }, 1000);
-  </script>
+<div id="countdown">
+  <h2>Time Together</h2>
+  <div id="timeSpent">
+    <p id="days">Days: 0</p>
+    <p id="hours">Hours: 0</p>
+    <p id="minutes">Minutes: 0</p>
+    <p id="seconds">Seconds: 0</p>
+  </div>
+</div>
 
   <!-- Photo Gallery -->
   <div class="gallery">
