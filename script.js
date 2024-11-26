@@ -1,5 +1,5 @@
 // Set the date of your first meeting (e.g., YYYY-MM-DD)
-const firstMeetDate = new Date("2021-11-28"); // Replace this with your actual date
+const firstMeetDate = new Date("2021-11-28"); // Replace with your actual date
 
 function updateTimeSpent() {
   const now = new Date();
