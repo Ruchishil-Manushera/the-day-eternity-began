@@ -70,12 +70,13 @@ function updateFlip(id, newValue) {
 
     // Add the flipping effect
     element.classList.remove("flip-active");
+    
+    // After the flip animation, change the front value
     setTimeout(() => {
+      front.innerText = newValueString; // Change the front value after the flip
       element.classList.add("flip-active");
-    }, 50); // Short delay for the animation to work smoothly
+    }, 700); // The duration of the flip animation (700ms)
 
-    // Set the front value after the flip starts
-    front.innerText = newValueString;
   }
 }
 
