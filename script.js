@@ -112,5 +112,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('prev-btn').addEventListener('click', showPreviousPaper);
 });
 
+document.getElementById("reveal-message").addEventListener("click", () => {
+  const decodedMessage = document.getElementById("decoded-message");
+  decodedMessage.style.display = "block";
+});
 
 setInterval(updateTimeSpent, 1000);
