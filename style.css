@@ -204,7 +204,7 @@ main {
   font-family: 'Georgia', serif;
   font-size: 1.4em;
   opacity: 0.8;
-  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .last-paper {
@@ -213,12 +213,15 @@ main {
   opacity: 1;
 }
 
-.paper-container:hover .paper {
-  transform: translateY(-100%);
-}
-
-.paper:last-child {
-  opacity: 1;
+#nextBtn {
+  padding: 10px 20px;
+  background-color: #ff7b7b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 20px;
 }
 
 /* Mobile-friendly adjustments */
