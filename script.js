@@ -68,13 +68,10 @@ function updateFlip(id, newValue) {
     // Set the back value first
     back.innerText = newValueString;
 
-    // Remove the flip class to reset the animation
+    // Reset the flip animation and trigger it again
     element.classList.remove("flip-active");
-
-    // Trigger the flip animation
-    setTimeout(() => {
-      element.classList.add("flip-active");
-    }, 0);
+    void element.offsetWidth; // This triggers reflow to restart animation
+    element.classList.add("flip-active");
 
     // Midway change (halfway through the flip)
     setTimeout(() => {
