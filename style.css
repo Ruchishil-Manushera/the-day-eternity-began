@@ -181,8 +181,8 @@ main {
 
 #papers-container {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  height: 300px;
   margin: auto;
   overflow: hidden;
 }
@@ -190,28 +190,36 @@ main {
 .paper {
   width: 100%;
   height: 100%;
-  background-color: #fbeadf;
-  border: 2px solid #ff7b7b;
   position: absolute;
-  display: none;  /* Start with hidden papers */
+  display: none;
   align-items: center;
   justify-content: center;
-  font-size: 1.5em;
-  padding: 10px;
-  text-align: center;
+}
+
+.paper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 8px;
-  color: #333;
-  font-family: 'Chilanka', sans-serif;
 }
 
-.paper.show {
-  display: block; /* Show paper when it has .show class */
-  animation: swipe 1s ease-in-out;
+#papers-container .paper:first-child {
+  display: block;
 }
 
-@keyframes swipe {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #ff7b7b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #e55d5d;
 }
 
 
