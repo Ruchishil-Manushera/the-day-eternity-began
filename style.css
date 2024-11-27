@@ -1,4 +1,4 @@
-/* Global Styles */
+/* Basic styling for the page */
 body {
   font-family: 'Chilanka', sans-serif;
   text-align: center;
@@ -8,7 +8,7 @@ body {
   padding: 0;
 }
 
-/* Header */
+/* Header styling */
 header {
   background-color: #ff7b7b;
   padding: 20px;
@@ -16,32 +16,37 @@ header {
   font-size: 24px;
 }
 
-/* Timer Section */
+/* Styling for the countdown container */
 #countdown {
   margin: 30px 0;
 }
 
+/* Styling for the timer container */
 #timer {
   display: flex;
   justify-content: center;
   gap: 20px;
 }
 
+/* Flip animation container */
 .flip {
   width: 70px;
   height: 90px;
   perspective: 1000px;
   position: relative;
+  display: inline-block;
 }
 
+/* Flip inner container */
 .flip-inner {
   width: 100%;
   height: 100%;
   position: absolute;
-  transition: transform 0.7s;
   transform-style: preserve-3d;
+  transition: transform 0.7s; /* Adjust flip duration */
 }
 
+/* Front and back of the flip */
 .flip-front,
 .flip-back {
   width: 100%;
@@ -52,37 +57,56 @@ header {
   background: #fff;
   border: 2px solid #ff7b7b;
   border-radius: 8px;
-  font-size: 1.5em;
+  font-size: 2em;  /* Adjust font size for better visibility */
   font-weight: bold;
   color: #ff7b7b;
   position: absolute;
   backface-visibility: hidden;
+  transition: transform 0.7s;
 }
 
+/* Back side of the flip element, rotated 180 degrees */
 .flip-back {
   transform: rotateX(180deg);
 }
 
+/* Active flip effect */
 .flip-active .flip-inner {
-  transform: rotateX(-180deg);
+  transform: rotateX(-180deg);  /* This triggers the flip animation */
+}
+
+/* Styling for transitions and hover effect */
+.flip:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
 }
 
 .flip-active .flip-front {
-  animation: flip-front 0.7s forwards;
+  animation: flip-front 0.7s forwards; /* Ensures the front side flips properly */
 }
 
 .flip-active .flip-back {
-  animation: flip-back 0.7s forwards;
+  animation: flip-back 0.7s forwards; /* Ensures the back side flips correctly */
 }
 
+/* Flip front animation */
 @keyframes flip-front {
-  0% { transform: rotateX(0); }
-  100% { transform: rotateX(-180deg); }
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(-180deg);
+  }
 }
 
+/* Flip back animation */
 @keyframes flip-back {
-  0% { transform: rotateX(180deg); }
-  100% { transform: rotateX(0); }
+  0% {
+    transform: rotateX(180deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
 }
 
 /* Card Section */
