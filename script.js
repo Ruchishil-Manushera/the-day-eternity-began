@@ -91,3 +91,22 @@ window.addEventListener('scroll', revealCardsOnScroll);
 revealCardsOnScroll();
 
 setInterval(updateTimeSpent, 1000);
+
+let currentIndex = 0;
+const papers = document.querySelectorAll('.paper');
+const nextBtn = document.getElementById('nextBtn');
+
+function showNextPaper() {
+  if (currentIndex < papers.length - 1) {
+    papers[currentIndex].style.transform = 'translateY(-100%)'; // Move current paper out of view
+    papers[currentIndex].style.opacity = '0'; // Hide current paper
+    currentIndex++;
+    papers[currentIndex].style.transform = 'translateY(0)'; // Bring next paper into view
+    papers[currentIndex].style.opacity = '1'; // Show next paper
+  } else {
+    // Optional: Reset or do something else when the last paper is shown
+    nextBtn.innerText = "End";
+  }
+}
+
+nextBtn.addEventListener('click', showNextPaper);
