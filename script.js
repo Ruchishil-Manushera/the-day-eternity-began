@@ -95,11 +95,33 @@ setInterval(updateTimeSpent, 1000);
 let currentPaper = 0;
 const papers = document.querySelectorAll('.paper');
 const totalPapers = papers.length;
+let startTouch = 0;
 
 function showNextPaper() {
-  papers[currentPaper].classList.remove('show'); // hide current paper
-  currentPaper = (currentPaper + 1) % totalPapers; // cycle through papers
-  papers[currentPaper].classList.add('show'); // show next paper
+  papers[currentPaper].classList.remove('show');
+  currentPaper = (currentPaper + 1) % totalPapers;
+  papers[currentPaper].classList.add('show');
 }
+
+function showPreviousPaper() {
+  papers[currentPaper].classList.remove('show');
+  currentPaper = (currentPaper - 1 + totalPapers) % totalPapers;
+  papers[currentPaper].classList.add('show');
+}
+
+// Swipe detection
+document.getElementById("papers-container").addEventListener("touchstart", function(e) {
+  startTouch = e.touches[0].clientX;
+});
+
+document.getElementById("papers-container").addEventListener("touchend", function(e) {
+  let endTouch = e.changedTouches[0].clientX;
+  if (startTouch - endTouch > 50) {
+    showNextPaper(); // Swipe left
+  }
+  if (endTouch - startTouch > 50) {
+    showPreviousPaper(); // Swipe right
+  }
+});
 
 setInterval(showNextPaper, 3000); // Change paper every 3 seconds
