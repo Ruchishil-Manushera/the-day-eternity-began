@@ -97,15 +97,15 @@ const papers = document.querySelectorAll('.paper');
 const totalPapers = papers.length;
 
 function showNextPaper() {
-  papers[currentPaper].classList.remove('show');
-  currentPaper = (currentPaper + 1) % totalPapers;
-  papers[currentPaper].classList.add('show');
+  papers[currentPaper].style.display = 'none'; // Hide current paper
+  currentPaper = (currentPaper + 1) % totalPapers; // Go to next paper
+  papers[currentPaper].style.display = 'block'; // Show next paper
 }
 
 function showPreviousPaper() {
-  papers[currentPaper].classList.remove('show');
-  currentPaper = (currentPaper - 1 + totalPapers) % totalPapers;
-  papers[currentPaper].classList.add('show');
+  papers[currentPaper].style.display = 'none'; // Hide current paper
+  currentPaper = (currentPaper - 1 + totalPapers) % totalPapers; // Go to previous paper
+  papers[currentPaper].style.display = 'block'; // Show previous paper
 }
 
 document.getElementById('next-btn').addEventListener('click', showNextPaper);
