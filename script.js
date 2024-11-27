@@ -112,9 +112,16 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('prev-btn').addEventListener('click', showPreviousPaper);
 });
 
-document.getElementById("reveal-btn").addEventListener("click", function() {
-  const content = document.getElementById("reveal-content");
-  content.style.display = content.style.display === "block" ? "none" : "block";
+// Event listener for the reveal button
+document.getElementById("reveal-button").addEventListener("click", function() {
+  const content = document.getElementById("decoded-message");
+  if (content.style.display === "none" || !content.style.display) {
+    content.style.display = "block"; // Show content
+    this.textContent = "Hide"; // Change button text to 'Hide'
+  } else {
+    content.style.display = "none"; // Hide content
+    this.textContent = "Reveal"; // Change button text back to 'Reveal'
+  }
 });
 
 setInterval(updateTimeSpent, 1000);
