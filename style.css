@@ -198,7 +198,7 @@ main {
   background-color: #fbeadf;
   border: 2px solid #ff7b7b;
   position: absolute;
-  display: none;
+  display: none;  /* Start with hidden papers */
   align-items: center;
   justify-content: center;
   font-size: 1.5em;
@@ -209,32 +209,9 @@ main {
   font-family: 'Chilanka', sans-serif;
 }
 
-#papers-container .paper:first-child {
-  display: block;
-}
-
-@keyframes swipe {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
 .paper.show {
+  display: block; /* Show paper when it has .show class */
   animation: swipe 1s ease-in-out;
-}
-
-button {
-  margin: 10px;
-  padding: 10px 20px;
-  background-color: #ff7b7b;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 1.2em;
-  border-radius: 5px;
-}
-
-button:hover {
-  background-color: #e55d5d;
 }
 
 /* Mobile-friendly adjustments */
