@@ -108,8 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
         papers[currentPaper].style.display = 'block'; // Show previous paper
     }
 
-    document.getElementById('next-btn').addEventListener('click', showNextPaper());
-    document.getElementById('prev-btn').addEventListener('click', showPreviousPaper());
+    document.getElementById('next-btn').addEventListener('click', showNextPaper);
+    document.getElementById('prev-btn').addEventListener('click', showPreviousPaper);
 });
 
 
