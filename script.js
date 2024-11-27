@@ -97,13 +97,13 @@ const papers = document.querySelectorAll('.paper');
 const totalPapers = papers.length;
 
 function showNextPaper() {
-  papers[currentPaper].classList.remove('show'); // Hide current paper
+  papers[currentPaper].classList.remove('show');  // Hide current paper
   currentPaper = (currentPaper + 1) % totalPapers; // Go to next paper
   papers[currentPaper].classList.add('show'); // Show next paper
 }
 
 function showPreviousPaper() {
-  papers[currentPaper].classList.remove('show'); // Hide current paper
+  papers[currentPaper].classList.remove('show');  // Hide current paper
   currentPaper = (currentPaper - 1 + totalPapers) % totalPapers; // Go to previous paper
   papers[currentPaper].classList.add('show'); // Show previous paper
 }
