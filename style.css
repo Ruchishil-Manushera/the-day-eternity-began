@@ -69,16 +69,16 @@ header {
 .flip-back {
   transform: rotateX(180deg);
 }
-
-/* Flip active effect */
 .flip-active .flip-inner {
   transform: rotateX(-180deg);  /* This triggers the flip animation */
 }
 
-/* Front and back flip effects */
-.flip-front,
+.flip-front, .flip-back {
+  transition: transform 0.7s;
+}
+
 .flip-back {
-  transition: transform 0.7s ease-in-out;
+  transform: rotateX(180deg);
 }
 
 /* Flip front and back animations for smooth rotation */
