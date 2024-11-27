@@ -60,14 +60,20 @@ function updateFlip(id, newValue) {
   const front = element.querySelector(".flip-front");
   const back = element.querySelector(".flip-back");
 
+  // Ensure 2-digit format for values like "03" instead of "3"
+  const newValueString = newValue.toString().padStart(2, "0");
+
   // Only update if the value has changed
-  if (front.innerText !== newValue.toString()) {
-    back.innerText = newValue.toString().padStart(2, "0"); // Ensure 2-digit format
+  if (front.innerText !== newValueString) {
+    back.innerText = newValueString;
+
+    // Trigger the flip animation by toggling the class
     element.classList.remove("flip-active");
     setTimeout(() => {
       element.classList.add("flip-active");
     }, 0);
-    front.innerText = newValue.toString().padStart(2, "0");
+    
+    front.innerText = newValueString;
   }
 }
 
