@@ -222,6 +222,68 @@ button:hover {
   background-color: #e55d5d;
 }
 
+#find-me {
+  text-align: center;
+  margin: 50px auto;
+}
+
+.map-container {
+  background: url('your-map-design.jpg') no-repeat center/cover;
+  padding: 50px;
+  color: #fff;
+  font-family: 'Chilanka', sans-serif;
+  font-size: 1.5em;
+  border-radius: 10px;
+  border: 2px solid #ff7b7b;
+}
+
+#morse-code {
+  text-align: center;
+  margin: 50px auto;
+}
+
+.morse-container {
+  font-family: 'Courier New', monospace;
+  font-size: 1.5em;
+  padding: 20px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #ff7b7b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #e55d5d;
+}
+
+#happiness {
+  text-align: center;
+  margin: 50px auto;
+  background: url('galaxy-background.jpg') no-repeat center/cover;
+  padding: 50px;
+  color: white;
+  font-family: 'Chilanka', sans-serif;
+  font-size: 1.5em;
+  border-radius: 10px;
+  border: 2px solid #ff7b7b;
+}
+
+.galaxy-container {
+  animation: sparkle 5s infinite;
+}
+
+@keyframes sparkle {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
+}
 
 /* Mobile-friendly adjustments */
 @media (max-width: 600px) {
