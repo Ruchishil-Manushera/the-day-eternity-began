@@ -72,11 +72,11 @@ header {
   100% { transform: rotateX(0); }
 }
 
-
 /* Card Section */
 main {
   margin: 30px 0;
 }
+
 .card {
   display: flex;
   justify-content: space-between;
@@ -88,13 +88,12 @@ main {
   width: 90%;
   max-width: 800px;
   opacity: 0;
-  transform: translateY(20px); /* Start off-screen */
-  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  transition: transform 0.5s, opacity 0.5s;
 }
 
-.card.fade-in {
+.card:hover {
+  transform: translateY(-10px);
   opacity: 1;
-  transform: translateY(0); /* Slide into view */
 }
 
 .card .text {
@@ -157,5 +156,41 @@ main {
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+/* Mobile-friendly adjustments */
+@media (max-width: 600px) {
+  header {
+    font-size: 20px;
+  }
+
+  #timer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .flip {
+    width: 50px;
+    height: 70px;
+  }
+
+  .card {
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+  }
+
+  .card .text {
+    text-align: center;
+    padding: 0;
+  }
+
+  .card .image {
+    margin-top: 20px;
+  }
+
+  .card .image img {
+    max-width: 90%;
   }
 }
