@@ -70,44 +70,36 @@ header {
   transform: rotateX(180deg);
 }
 
-/* Active flip effect */
+/* Flip active effect */
 .flip-active .flip-inner {
   transform: rotateX(-180deg);  /* This triggers the flip animation */
 }
 
-/* Styling for transitions and hover effect */
-.flip:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transform: translateY(-5px);
+/* Front and back flip effects */
+.flip-front,
+.flip-back {
+  transition: transform 0.7s ease-in-out;
 }
 
-.flip-active .flip-front {
-  animation: flip-front 0.7s forwards; /* Ensures the front side flips properly */
-}
-
-.flip-active .flip-back {
-  animation: flip-back 0.7s forwards; /* Ensures the back side flips correctly */
-}
-
-/* Flip front animation */
+/* Flip front and back animations for smooth rotation */
 @keyframes flip-front {
-  0% {
+  from {
     transform: rotateX(0deg);
   }
-  100% {
+  to {
     transform: rotateX(-180deg);
   }
 }
 
-/* Flip back animation */
 @keyframes flip-back {
-  0% {
+  from {
     transform: rotateX(180deg);
   }
-  100% {
+  to {
     transform: rotateX(0deg);
   }
 }
+
 
 /* Card Section */
 main {
