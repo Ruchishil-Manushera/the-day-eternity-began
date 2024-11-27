@@ -90,23 +90,23 @@ window.addEventListener('scroll', revealCardsOnScroll);
 // Call the function once on load in case some cards are already in view
 revealCardsOnScroll();
 
-setInterval(updateTimeSpent, 1000);
-
 let currentPaper = 0;
 const papers = document.querySelectorAll('.paper');
 const totalPapers = papers.length;
 
 function showNextPaper() {
-  papers[currentPaper].classList.remove('show');  // Hide current paper
+  papers[currentPaper].style.display = 'none'; // Hide current paper
   currentPaper = (currentPaper + 1) % totalPapers; // Go to next paper
-  papers[currentPaper].classList.add('show'); // Show next paper
+  papers[currentPaper].style.display = 'block'; // Show next paper
 }
 
 function showPreviousPaper() {
-  papers[currentPaper].classList.remove('show');  // Hide current paper
+  papers[currentPaper].style.display = 'none'; // Hide current paper
   currentPaper = (currentPaper - 1 + totalPapers) % totalPapers; // Go to previous paper
-  papers[currentPaper].classList.add('show'); // Show previous paper
+  papers[currentPaper].style.display = 'block'; // Show previous paper
 }
 
 document.getElementById('next-btn').addEventListener('click', showNextPaper);
 document.getElementById('prev-btn').addEventListener('click', showPreviousPaper);
+
+setInterval(updateTimeSpent, 1000);
