@@ -179,11 +179,6 @@ main {
   }
 }
 
-#things-i-dont-know {
-  text-align: center;
-  margin: 20px 0;
-}
-
 #papers-container {
   position: relative;
   width: 200px;
@@ -213,6 +208,12 @@ main {
   display: block; /* Show paper when it has .show class */
   animation: swipe 1s ease-in-out;
 }
+
+@keyframes swipe {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 
 /* Mobile-friendly adjustments */
 @media (max-width: 600px) {
