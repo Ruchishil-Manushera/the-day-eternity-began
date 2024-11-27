@@ -112,9 +112,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('prev-btn').addEventListener('click', showPreviousPaper);
 });
 
-document.getElementById("reveal-message").addEventListener("click", () => {
-  const decodedMessage = document.getElementById("decoded-message");
-  decodedMessage.style.display = "block";
+document.getElementById("reveal-btn").addEventListener("click", function() {
+  const content = document.getElementById("reveal-content");
+  content.style.display = content.style.display === "block" ? "none" : "block";
 });
 
 setInterval(updateTimeSpent, 1000);
