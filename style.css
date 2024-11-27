@@ -1,6 +1,6 @@
 /* Basic styling for the page */
 body {
-  font-family: 'Chilanka', sans-serif;
+  font-family: 'Chilanka', bold;
   text-align: center;
   background-color: #fbeadf;
   color: #333;
@@ -14,6 +14,7 @@ header {
   background-color: #ff7b7b;
   padding: 15px;
   color: white;
+  font-family: 'Dancing Script', cursive; /* Custom font for header */
   font-size: 20px;
   word-wrap: break-word;
 }
@@ -23,58 +24,25 @@ header {
   margin: 20px 0;
 }
 
-/* Styling for the timer container */
-#timer {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  padding: 10px;
+/* Countdown title font */
+#countdown h2 {
+  font-family: 'Georgia', serif; /* Custom font for countdown title */
+  font-size: 1.8em;
 }
 
-.flip {
-  width: 60px;
-  height: 80px;
-  perspective: 1000px;
+/* Flip timer font */
+#timer p {
+  font-family: 'Chilanka', bold; /* Custom font for flip timer labels */
+  font-size: 1.2em;
 }
 
-.flip-front, .flip-back {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #fff;
-  border: 2px solid #ff7b7b;
-  border-radius: 8px;
-  font-size: 1.4em;
-  font-weight: bold;
-  color: #ff7b7b;
-  position: absolute;
-  backface-visibility: hidden;
+/* Final "of My Life" font */
+#countdown h2:last-of-type {
+  font-family: 'Lobster', cursive; /* Custom font for the final section */
+  font-size: 2.2em;
 }
 
-.flip-back {
-  transform: rotateX(180deg);
-}
-
-.flip-active .flip-front {
-  animation: flip-front 0.7s forwards;
-}
-
-.flip-active .flip-back {
-  animation: flip-back 0.7s forwards;
-}
-
-@keyframes flip-front {
-  0% { transform: rotateX(0); }
-  100% { transform: rotateX(-180deg); }
-}
-
-@keyframes flip-back {
-  0% { transform: rotateX(180deg); }
-  100% { transform: rotateX(0); }
-}
+/* Additional styles for other sections as per previous code */
 
 /* Card Section */
 main {
@@ -132,34 +100,6 @@ main {
 
 .card .image audio {
   margin-top: 8px;
-}
-
-.light-pink {
-  background-color: #ffe0e6;
-}
-
-.light-blue {
-  background-color: #e0f7fa;
-}
-
-.light-purple {
-  background-color: #f3e5f5;
-}
-
-/* Animation */
-.card.fade-in {
-  animation: fadeIn 1s ease-in-out forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }
 
 /* Mobile-friendly adjustments */
