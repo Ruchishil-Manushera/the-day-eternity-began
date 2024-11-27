@@ -9,6 +9,30 @@ body {
   box-sizing: border-box;
 }
 
+/* Change font for the header */
+header {
+  font-family: 'Dancing Script', cursive; /* Example font */
+  font-size: 2em;
+}
+
+/* Change font for the countdown title */
+#countdown h2 {
+  font-family: 'Georgia', serif; /* Example font */
+  font-size: 1.8em;
+}
+
+/* Change font for the flip timer (years, months, etc.) */
+#timer p {
+  font-family: 'Chilanka', sans-serif; /* Example font */
+  font-size: 1.2em;
+}
+
+/* Change font for the final "of My Life" */
+#countdown h2:last-of-type {
+  font-family: 'Lobster', cursive; /* Example font */
+  font-size: 2.2em;
+}
+
 /* Header styling */
 header {
   background-color: #ff7b7b;
