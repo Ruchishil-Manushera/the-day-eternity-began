@@ -65,14 +65,16 @@ function updateFlip(id, newValue) {
 
   // Only update if the value has changed
   if (front.innerText !== newValueString) {
+    // Set the back value first
     back.innerText = newValueString;
 
-    // Trigger the flip animation by toggling the class
+    // Add the flipping effect
     element.classList.remove("flip-active");
     setTimeout(() => {
       element.classList.add("flip-active");
-    }, 0);
-    
+    }, 50); // Short delay for the animation to work smoothly
+
+    // Set the front value after the flip starts
     front.innerText = newValueString;
   }
 }
