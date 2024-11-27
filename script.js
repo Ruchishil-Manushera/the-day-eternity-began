@@ -92,21 +92,14 @@ revealCardsOnScroll();
 
 setInterval(updateTimeSpent, 1000);
 
-let currentIndex = 0;
+let currentPaper = 0;
 const papers = document.querySelectorAll('.paper');
-const nextBtn = document.getElementById('nextBtn');
+const totalPapers = papers.length;
 
 function showNextPaper() {
-  if (currentIndex < papers.length - 1) {
-    papers[currentIndex].style.transform = 'translateY(-100%)'; // Move current paper out of view
-    papers[currentIndex].style.opacity = '0'; // Hide current paper
-    currentIndex++;
-    papers[currentIndex].style.transform = 'translateY(0)'; // Bring next paper into view
-    papers[currentIndex].style.opacity = '1'; // Show next paper
-  } else {
-    // Optional: Reset or do something else when the last paper is shown
-    nextBtn.innerText = "End";
-  }
+  papers[currentPaper].classList.remove('show'); // hide current paper
+  currentPaper = (currentPaper + 1) % totalPapers; // cycle through papers
+  papers[currentPaper].classList.add('show'); // show next paper
 }
 
-nextBtn.addEventListener('click', showNextPaper);
+setInterval(showNextPaper, 3000); // Change paper every 3 seconds
