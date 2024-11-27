@@ -114,13 +114,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Event listener for the reveal button
 document.getElementById("reveal-message").addEventListener("click", function() {
-  const content = document.getElementById("decoded-message");
-  if (content.style.display === "none" || !content.style.display) {
-    content.style.display = "block"; // Show content
-    this.textContent = "Hide"; // Change button text to 'Hide'
+  const decodedMessage = document.getElementById("decoded-message");
+  if (decodedMessage.style.display === "none" || !decodedMessage.style.display) {
+    decodedMessage.style.display = "block"; // Show decoded message
+    this.textContent = "Hide Message"; // Change button text to 'Hide Message'
   } else {
-    content.style.display = "none"; // Hide content
-    this.textContent = "Reveal"; // Change button text back to 'Reveal'
+    decodedMessage.style.display = "none"; // Hide decoded message
+    this.textContent = "Reveal Message"; // Change button text back to 'Reveal Message'
   }
 });
 
