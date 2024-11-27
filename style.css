@@ -77,7 +77,6 @@ header {
 main {
   margin: 30px 0;
 }
-
 .card {
   display: flex;
   justify-content: space-between;
@@ -88,13 +87,14 @@ main {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   width: 90%;
   max-width: 800px;
-  transition: transform 0.5s, opacity 0.5s;
   opacity: 0;
+  transform: translateY(20px); /* Start off-screen */
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
-.card:hover {
-  transform: translateY(-10px);
+.card.fade-in {
   opacity: 1;
+  transform: translateY(0); /* Slide into view */
 }
 
 .card .text {
