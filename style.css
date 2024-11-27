@@ -1,6 +1,6 @@
 /* Basic styling for the page */
 body {
-  font-family: 'Chilanka', sans-serif;
+  font-family: 'Chilanka', bold;
   text-align: center;
   background-color: #fbeadf;
   color: #333;
@@ -9,41 +9,22 @@ body {
   box-sizing: border-box;
 }
 
-/* Change font for the header */
-header {
-  font-family: 'Dancing Script', cursive; /* Example font */
-  font-size: 2em;
-}
 
-/* Change font for the countdown title */
-#countdown h2 {
-  font-family: 'Georgia', serif; /* Example font */
-  font-size: 1.8em;
-}
-
-/* Change font for the flip timer (years, months, etc.) */
-#timer p {
-  font-family: 'Chilanka', sans-serif; /* Example font */
-  font-size: 1.2em;
-}
-
-/* Change font for the final "of My Life" */
-#countdown h2:last-of-type {
-  font-family: 'Lobster', cursive; /* Example font */
-  font-size: 2.2em;
-}
 
 /* Header styling */
 header {
   background-color: #ff7b7b;
   padding: 15px;
   color: white;
-  font-size: 20px;
+  font-family: 'Dancing Script', cursive; /* Example font */
+  font-size: 2em;
   word-wrap: break-word;
 }
 
 /* Styling for the countdown container */
-#countdown {
+#countdown h2 {
+  font-family: 'Georgia', serif; /* Example font */
+  font-size: 1.8em;
   margin: 20px 0;
 }
 
@@ -54,6 +35,11 @@ header {
   gap: 15px;
   flex-wrap: wrap;
   padding: 10px;
+}
+
+#timer p {
+  font-family: 'Chilanka', sans-serif; /* Example font */
+  font-size: 1.2em;
 }
 
 .flip {
@@ -98,6 +84,12 @@ header {
 @keyframes flip-back {
   0% { transform: rotateX(180deg); }
   100% { transform: rotateX(0); }
+}
+
+/* Change font for the final "of My Life" */
+#countdown h2:last-of-type {
+  font-family: 'Lobster', cursive; /* Example font */
+  font-size: 2.2em;
 }
 
 /* Card Section */
