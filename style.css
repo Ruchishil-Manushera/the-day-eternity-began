@@ -248,6 +248,10 @@ button:hover {
   padding: 20px;
 }
 
+#decoded-message {
+  display: none; /* Ensures the decoded message is hidden initially */
+}
+
 button {
   margin: 10px;
   padding: 10px 20px;
