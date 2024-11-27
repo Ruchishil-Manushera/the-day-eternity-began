@@ -34,19 +34,16 @@ header {
   height: 90px;
   perspective: 1000px;
   position: relative;
-  display: inline-block;
 }
 
-/* Flip inner container */
 .flip-inner {
   width: 100%;
   height: 100%;
   position: absolute;
   transform-style: preserve-3d;
-  transition: transform 0.7s; /* Adjust flip duration */
+  transition: transform 0.7s;
 }
 
-/* Front and back of the flip */
 .flip-front,
 .flip-back {
   width: 100%;
@@ -57,47 +54,19 @@ header {
   background: #fff;
   border: 2px solid #ff7b7b;
   border-radius: 8px;
-  font-size: 2em;  /* Adjust font size for better visibility */
+  font-size: 2em;
   font-weight: bold;
   color: #ff7b7b;
   position: absolute;
   backface-visibility: hidden;
-  transition: transform 0.7s;
 }
 
-/* Back side of the flip element, rotated 180 degrees */
 .flip-back {
   transform: rotateX(180deg);
 }
+
 .flip-active .flip-inner {
-  transform: rotateX(-180deg);  /* This triggers the flip animation */
-}
-
-.flip-front, .flip-back {
-  transition: transform 0.7s;
-}
-
-.flip-back {
-  transform: rotateX(180deg);
-}
-
-/* Flip front and back animations for smooth rotation */
-@keyframes flip-front {
-  from {
-    transform: rotateX(0deg);
-  }
-  to {
-    transform: rotateX(-180deg);
-  }
-}
-
-@keyframes flip-back {
-  from {
-    transform: rotateX(180deg);
-  }
-  to {
-    transform: rotateX(0deg);
-  }
+  transform: rotateX(-180deg);
 }
 
 
