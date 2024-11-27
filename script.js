@@ -60,20 +60,23 @@ function updateFlip(id, newValue) {
   const front = element.querySelector(".flip-front");
   const back = element.querySelector(".flip-back");
 
+  // Ensure 2-digit format for values like "03" instead of "3"
   const newValueString = newValue.toString().padStart(2, "0");
 
+  // Only update if the value has changed
   if (front.innerText !== newValueString) {
+    // Set the back value first
     back.innerText = newValueString;
+
+    // Reset the flip animation and trigger it again with reflow
     element.classList.remove("flip-active");
-    
-    // Trigger reflow and re-add the flip-active class
-    void element.offsetWidth;
-    
+    void element.offsetWidth; // Trigger reflow to restart the animation
     element.classList.add("flip-active");
 
+    // Midway change (halfway through the flip)
     setTimeout(() => {
-      front.innerText = newValueString;
-    }, 350); // Midway change after 350ms
+      front.innerText = newValueString; // Change the front value midway
+    }, 350); // 350ms is halfway through the flip animation (0.7s total)
   }
 }
 
