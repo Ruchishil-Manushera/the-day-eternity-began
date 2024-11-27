@@ -90,23 +90,27 @@ window.addEventListener('scroll', revealCardsOnScroll);
 // Call the function once on load in case some cards are already in view
 revealCardsOnScroll();
 
-let currentPaper = 0;
-const papers = document.querySelectorAll('.paper');
-const totalPapers = papers.length;
 
-function showNextPaper() {
-  papers[currentPaper].style.display = 'none'; // Hide current paper
-  currentPaper = (currentPaper + 1) % totalPapers; // Go to next paper
-  papers[currentPaper].style.display = 'block'; // Show next paper
-}
+document.addEventListener('DOMContentLoaded', () => {
+    let currentPaper = 0;
+    const papers = document.querySelectorAll('.paper');
+    const totalPapers = papers.length;
 
-function showPreviousPaper() {
-  papers[currentPaper].style.display = 'none'; // Hide current paper
-  currentPaper = (currentPaper - 1 + totalPapers) % totalPapers; // Go to previous paper
-  papers[currentPaper].style.display = 'block'; // Show previous paper
-}
+    function showNextPaper() {
+        papers[currentPaper].style.display = 'none'; // Hide current paper
+        currentPaper = (currentPaper + 1) % totalPapers; // Go to next paper
+        papers[currentPaper].style.display = 'block'; // Show next paper
+    }
 
-document.getElementById('next-btn').addEventListener('click', showNextPaper);
-document.getElementById('prev-btn').addEventListener('click', showPreviousPaper);
+    function showPreviousPaper() {
+        papers[currentPaper].style.display = 'none'; // Hide current paper
+        currentPaper = (currentPaper - 1 + totalPapers) % totalPapers; // Go to previous paper
+        papers[currentPaper].style.display = 'block'; // Show previous paper
+    }
+
+    document.getElementById('next-btn').addEventListener('click', 'showNextPaper');
+    document.getElementById('prev-btn').addEventListener('click', 'showPreviousPaper');
+});
+
 
 setInterval(updateTimeSpent, 1000);
