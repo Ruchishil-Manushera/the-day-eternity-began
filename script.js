@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Event listener for the reveal button
-document.getElementById("reveal-button").addEventListener("click", function() {
+document.getElementById("reveal-message").addEventListener("click", function() {
   const content = document.getElementById("decoded-message");
   if (content.style.display === "none" || !content.style.display) {
     content.style.display = "block"; // Show content
