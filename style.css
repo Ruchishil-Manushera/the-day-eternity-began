@@ -240,6 +240,9 @@ button:hover {
 #morse-code {
   text-align: center;
   margin: 50px auto;
+  background: url('Morse Code.webp') no-repeat center center;
+  background-size: cover;
+  padding: 20px;
 }
 
 .morse-container {
