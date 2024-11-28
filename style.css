@@ -238,11 +238,17 @@ button:hover {
 }
 
 #morse-code {
-  text-align: center;
-  margin: 50px auto;
   background: url('Morse Code.webp') no-repeat center center;
-  background-size: 100% 100%;
-  padding: 20px;
+  background-size: cover; /* Ensures it covers the section proportionally */
+  width: 100%;
+  height: auto;
+  min-height: 100vh; /* Ensures it spans the viewport height */
+}
+
+@media (max-width: 768px) {
+  #morse-code {
+    background-size: contain; /* Adjusts scaling for smaller screens */
+  }
 }
 
 .morse-container {
