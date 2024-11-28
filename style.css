@@ -238,39 +238,14 @@ button:hover {
 }
 
 #morse-code {
-  background: url('Morse Code.webp') no-repeat center center;
-  background-size: cover; /* Ensures it covers the section proportionally */
-  width: auto;
-  height: auto;
-  min-height: 100vh; /* Ensures it spans the viewport height */
-}
-
-@media (max-width: 768px) {
-  #morse-code {
-    background-size: contain; /* Adjusts scaling for smaller screens */
-  }
+  text-align: center;
+  margin: 50px auto;
 }
 
 .morse-container {
   font-family: 'Courier New', monospace;
   font-size: 1.5em;
   padding: 20px;
-}
-
-#decoded-message {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-#decoded-message {
-  opacity: 0; /* Initially hidden */
-  transition: opacity 1s ease-in-out; /* Smooth fade-in effect */
-  visibility: hidden; /* Prevent interaction when hidden */
-}
-
-#decoded-message.visible {
-  opacity: 1; /* Fully visible */
-  visibility: visible; /* Enable interaction */
 }
 
 button {
@@ -286,6 +261,13 @@ button {
 
 button:hover {
   background-color: #e55d5d;
+}
+
+#decoded-message {
+  display: none; /* Hidden initially */
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #333;
 }
 
 #happiness {
