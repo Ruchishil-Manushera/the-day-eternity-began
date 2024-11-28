@@ -258,7 +258,12 @@ button:hover {
 }
 
 #decoded-message {
-  display: none; /* Ensures the decoded message is hidden initially */
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+#decoded-message.visible {
+  opacity: 1;
 }
 
 button {
