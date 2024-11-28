@@ -115,12 +115,12 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById("reveal-message").addEventListener("click", function () {
   const decodedMessage = document.getElementById("decoded-message");
-  
+
   if (!decodedMessage.classList.contains("visible")) {
-    decodedMessage.classList.add("visible"); // Fade in
-    this.textContent = "Hide Message"; // Change button text
+    decodedMessage.classList.add("visible"); // Add the visible class for fade-in
+    this.textContent = "Hide Message"; // Update button text
   } else {
-    decodedMessage.classList.remove("visible"); // Fade out
+    decodedMessage.classList.remove("visible"); // Remove the visible class for fade-out
     this.textContent = "Reveal Message"; // Reset button text
   }
 });
