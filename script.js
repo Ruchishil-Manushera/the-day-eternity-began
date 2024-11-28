@@ -113,16 +113,17 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById("reveal-message").addEventListener("click", function() {
-    const decodedMessage = document.getElementById("decoded-message");
-    if (decodedMessage.style.display === "none" || !decodedMessage.style.display) {
-      decodedMessage.style.display = "block"; 
-      this.textContent = "Hide Message"; 
-    } else {
-      decodedMessage.style.display = "none"; 
-      this.textContent = "Reveal Message"; 
-    }
-  });
+  document.getElementById("reveal-message").addEventListener("click", function () {
+  const decodedMessage = document.getElementById("decoded-message");
+  
+  if (!decodedMessage.classList.contains("visible")) {
+    decodedMessage.classList.add("visible"); // Fade in
+    this.textContent = "Hide Message"; // Change button text
+  } else {
+    decodedMessage.classList.remove("visible"); // Fade out
+    this.textContent = "Reveal Message"; // Reset button text
+  }
+});
 });
 
 setInterval(updateTimeSpent, 1000);
