@@ -228,7 +228,7 @@ button:hover {
 }
 
 .map-container {
-  background: url('your-map-design.jpg') no-repeat center/cover;
+  background: url('rose.jpg') no-repeat center/cover;
   padding: 50px;
   color: #fff;
   font-family: 'Chilanka', sans-serif;
@@ -273,7 +273,7 @@ button:hover {
 #happiness {
   text-align: center;
   margin: 50px auto;
-  background: url('galaxy-background.jpg') no-repeat center/cover;
+  background: url('galaxy.jpg') no-repeat center/cover;
   padding: 50px;
   color: white;
   font-family: 'Chilanka', sans-serif;
