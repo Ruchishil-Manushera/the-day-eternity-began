@@ -262,8 +262,15 @@ button:hover {
   transition: opacity 1s ease-in-out;
 }
 
+#decoded-message {
+  opacity: 0; /* Initially hidden */
+  transition: opacity 1s ease-in-out; /* Smooth fade-in effect */
+  visibility: hidden; /* Prevent interaction when hidden */
+}
+
 #decoded-message.visible {
-  opacity: 1;
+  opacity: 1; /* Fully visible */
+  visibility: visible; /* Enable interaction */
 }
 
 button {
