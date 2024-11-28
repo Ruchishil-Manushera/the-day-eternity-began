@@ -113,25 +113,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById("reveal-message").addEventListener("click", function () {
+document.getElementById("reveal-message").addEventListener("click", function () {
   const decodedMessage = document.getElementById("decoded-message");
-
-  if (!decodedMessage.classList.contains("visible")) {
-    decodedMessage.classList.add("visible"); // Add the visible class for fade-in
-    this.textContent = "Hide Message"; // Update button text
+  if (decodedMessage.style.display === "none" || !decodedMessage.style.display) {
+    decodedMessage.style.display = "block"; // Show decoded message
+    this.textContent = "Hide Message"; // Change button text to 'Hide Message'
   } else {
-    decodedMessage.classList.remove("visible"); // Remove the visible class for fade-out
-    this.textContent = "Reveal Message"; // Reset button text
+    decodedMessage.style.display = "none"; // Hide decoded message
+    this.textContent = "Reveal Message"; // Change button text back to 'Reveal Message'
   }
 });
 });
 
 setInterval(updateTimeSpent, 1000);
-
-
-const section = document.querySelector('morse-code'); // Replace with your section's ID
-const width = section.offsetWidth;
-const height = section.offsetHeight;
-const area = width * height;
-
-console.log(`The area of the section is ${area} square pixels.`);
