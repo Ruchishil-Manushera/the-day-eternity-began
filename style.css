@@ -241,7 +241,7 @@ button:hover {
   text-align: center;
   margin: 50px auto;
   background: url('Morse Code.webp') no-repeat center center;
-  background-size: cover;
+  background-size: 100% 100%;
   padding: 20px;
 }
 
