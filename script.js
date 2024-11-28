@@ -126,3 +126,11 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 setInterval(updateTimeSpent, 1000);
+
+
+const section = document.querySelector('morse-code'); // Replace with your section's ID
+const width = section.offsetWidth;
+const height = section.offsetHeight;
+const area = width * height;
+
+console.log(`The area of the section is ${area} square pixels.`);
