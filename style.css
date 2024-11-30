@@ -163,6 +163,42 @@ main {
   background-color: #f3e5f5;
 }
 
+.light-mint {
+  background-color: #e0f7ec;
+}
+
+.soft-lime {
+  background-color: #f2f9e6;
+}
+
+.light-yellow {
+  background-color: #fff9e0;
+}
+
+.pale-sand {
+  background-color: #f9f4e6;
+}
+
+.lavender {
+  background-color: #e6e9f9;
+}
+
+.sky-blue {
+  background-color: #e6f4ff;
+}
+
+.peach {
+  background-color: #ffe5d8;
+}
+
+.light-coral {
+  background-color: #f9e6e6;
+}
+
+.blush {
+  background-color: #fde8e8;
+}
+
 /* Animation */
 .card.fade-in {
   animation: fadeIn 1s ease-in-out forwards;
