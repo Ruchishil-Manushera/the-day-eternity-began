@@ -85,6 +85,8 @@ function revealCardsOnScroll() {
 }
 
 
+// Event listener for scroll
+window.addEventListener('scroll', revealCardsOnScroll);
 
 // Call the function once on load in case some cards are already in view
 revealCardsOnScroll();
