@@ -68,22 +68,24 @@ function updateFlip(id, newValue) {
   }
 }
 
-// Function to check if the element is in the viewport
-function isElementInViewport(el) {
+// Function to check if the element is partially in the viewport
+function isElementPartiallyInViewport(el) {
   const rect = el.getBoundingClientRect();
-  return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+  return (
+    rect.top < window.innerHeight && 
+    rect.bottom > 0
+  );
 }
 
 // Function to handle the scroll event
 function revealCardsOnScroll() {
   const cards = document.querySelectorAll('.card');
   cards.forEach(card => {
-    if (isElementInViewport(card)) {
+    if (isElementPartiallyInViewport(card)) {
       card.classList.add('fade-in');
     }
   });
 }
-
 
 // Event listener for scroll
 window.addEventListener('scroll', revealCardsOnScroll);
