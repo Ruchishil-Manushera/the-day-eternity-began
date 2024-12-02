@@ -1,4 +1,4 @@
-const firstMeetDate = new Date("2021-11-28");
+const firstMeetDate = new Date("2021-11-28T13:45:38");
 
 function isLeapYear(year) {
   return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
