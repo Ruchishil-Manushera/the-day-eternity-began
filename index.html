@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  document.addEventListener('contextmenu', event => event.preventDefault());
+</script>
+<script>
+  document.addEventListener('keydown', event => {
+    if (event.key === 'F12' || 
+        (event.ctrlKey && event.shiftKey && event.key === 'I') || 
+        (event.ctrlKey && event.shiftKey && event.key === 'J') || 
+        (event.ctrlKey && event.key === 'U')) {
+      event.preventDefault();
+    }
+  });
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Chilanka&display=swap" rel="stylesheet">
