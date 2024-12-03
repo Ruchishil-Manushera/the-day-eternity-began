@@ -2,16 +2,15 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Middleware to disable caching for all requests
+// Disable caching
 app.use((req, res, next) => {
   res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
   res.setHeader('Pragma', 'no-cache');
   res.setHeader('Expires', '0');
-  res.setHeader('Surrogate-Control', 'no-store');
   next();
 });
 
-// Middleware for Basic Authentication (force login every time)
+// Middleware for Basic Authentication
 app.use((req, res, next) => {
   const auth = { login: process.env.AUTH_USERNAME || 'admin', password: process.env.AUTH_PASSWORD || 'password' };
 
@@ -28,18 +27,19 @@ app.use((req, res, next) => {
     }
   }
 
-  // Prompt login if authentication fails
-  res.setHeader('WWW-Authenticate', 'Basic realm="Protected Area", charset="UTF-8"');
+  // Generate a unique realm for every request
+  const uniqueRealm = `Protected Area - ${Date.now()}`;
+  res.setHeader('WWW-Authenticate', `Basic realm="${uniqueRealm}", charset="UTF-8"`);
   res.status(401).send('Authentication required.');
 });
 
 // Middleware to parse form data
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files (HTML, CSS, etc.)
+// Serve static files
 app.use(express.static('public'));
 
-// Default route for index.html
+// Default route
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
 });
