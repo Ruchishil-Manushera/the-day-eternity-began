@@ -2,6 +2,11 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.use((req, res, next) => {
+  res.setHeader('Cache-Control', 'no-store');
+  next();
+});
+
 // Middleware to parse form data
 app.use(express.urlencoded({ extended: true }));
 
