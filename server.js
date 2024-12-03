@@ -11,26 +11,30 @@ app.use((req, res, next) => {
   next();
 });
 
-// Middleware to parse form data
-app.use(express.urlencoded({ extended: true }));
-
-// Middleware for Basic Authentication (prompt login every time)
+// Middleware for Basic Authentication (force login every time)
 app.use((req, res, next) => {
-  const auth = { login: process.env.AUTH_USERNAME, password: process.env.AUTH_PASSWORD };
+  const auth = { login: process.env.AUTH_USERNAME || 'admin', password: process.env.AUTH_PASSWORD || 'password' };
 
-  // Parse credentials from Authorization header
-  const b64auth = (req.headers.authorization || '').split(' ')[1] || '';
-  const [login, password] = Buffer.from(b64auth, 'base64').toString().split(':');
+  // Parse the Authorization header
+  const authHeader = req.headers.authorization || '';
+  const [type, credentials] = authHeader.split(' ');
 
-  // Verify login and password
-  if (login && password && login === auth.login && password === auth.password) {
-    return next(); // User authenticated
+  if (type === 'Basic' && credentials) {
+    const [login, password] = Buffer.from(credentials, 'base64').toString().split(':');
+
+    // Validate credentials
+    if (login === auth.login && password === auth.password) {
+      return next();
+    }
   }
 
-  // Prompt login if credentials are missing or incorrect
-  res.setHeader('WWW-Authenticate', 'Basic realm="Protected Area"');
+  // Prompt login if authentication fails
+  res.setHeader('WWW-Authenticate', 'Basic realm="Protected Area", charset="UTF-8"');
   res.status(401).send('Authentication required.');
 });
+
+// Middleware to parse form data
+app.use(express.urlencoded({ extended: true }));
 
 // Serve static files (HTML, CSS, etc.)
 app.use(express.static('public'));
@@ -40,5 +44,5 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
 });
 
-// Start server
+// Start the server
 app.listen(port, () => console.log(`Server running on port ${port}`));
