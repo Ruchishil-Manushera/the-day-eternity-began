@@ -7,7 +7,11 @@ app.use(express.static('public')); // Serve static files (HTML, CSS, etc.)
 
 // Password middleware
 app.use((req, res, next) => {
-  const auth = { login: 'teddy.of.panda.320', password: '04Nv2@@6Ankita' }; // Change these values
+  const auth = { 
+  login: process.env.AUTH_USERNAME, 
+  password: process.env.AUTH_PASSWORD 
+};
+ // Change these values
   const b64auth = (req.headers.authorization || '').split(' ')[1] || '';
   const [login, password] = Buffer.from(b64auth, 'base64').toString().split(':');
 
