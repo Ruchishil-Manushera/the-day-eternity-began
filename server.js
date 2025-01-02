@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 
-const auth = { login: process.env.AUTH_USERNAME || 'admin', password: process.env.AUTH_PASSWORD || 'password' };
+const auth = { login: process.env.AUTH_USERNAME || 'ruchi_madam-04', password: process.env.AUTH_PASSWORD || '04Nv2@@6ankita' };
 
 // Middleware: Disable caching
 app.use((req, res, next) => {
