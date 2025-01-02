@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 10000;
+const port = process.env.PORT || 3000;
 
 const auth = { login: process.env.AUTH_USERNAME || 'admin', password: process.env.AUTH_PASSWORD || 'password' };
 
