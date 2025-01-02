@@ -9,7 +9,12 @@ body {
   box-sizing: border-box;
 }
 
-
+/* Specific font styling for Bengali text */
+.bengali-text {
+  font-family: "Atma", serif;
+  font-weight: 600;
+  font-style: normal;
+}
 
 /* Header styling */
 header {
