@@ -1,4 +1,3 @@
-
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 10000;
@@ -21,17 +20,20 @@ app.use((req, res, next) => {
   if (type === 'Basic' && credentials) {
     const [login, password] = Buffer.from(credentials, 'base64').toString().split(':');
 
+    // Check if login and password match
     if (login === auth.login && password === auth.password) {
-      // Check for a session token (query param or cookie)
-      if (!req.query.sessionToken) {
-        // Generate a unique session token and redirect
+      // Check for session token (cookie or query param)
+      if (!req.cookies.sessionToken) {
+        // Generate a unique session token and set it in a cookie
         const sessionToken = Date.now().toString();
-        return res.redirect(`/?sessionToken=${sessionToken}`);
+        res.cookie('sessionToken', sessionToken, { httpOnly: true });
+        return res.redirect('/'); // Redirect to set the session token
       }
-      return next();
+      return next(); // Proceed to the requested route if authenticated
     }
   }
 
+  // If authentication fails, ask for credentials
   res.setHeader('WWW-Authenticate', 'Basic realm="Protected Area", charset="UTF-8"');
   res.status(401).send('Authentication required.');
 });
