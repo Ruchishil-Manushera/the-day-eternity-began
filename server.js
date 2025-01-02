@@ -12,7 +12,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// Middleware: Basic Authentication with session token
+// Middleware: Basic Authentication with session token in query params
 app.use((req, res, next) => {
   const authHeader = req.headers.authorization || '';
   const [type, credentials] = authHeader.split(' ');
@@ -22,12 +22,11 @@ app.use((req, res, next) => {
 
     // Check if login and password match
     if (login === auth.login && password === auth.password) {
-      // Check for session token (cookie or query param)
-      if (!req.cookies.sessionToken) {
-        // Generate a unique session token and set it in a cookie
+      // Check for session token in query params
+      if (!req.query.sessionToken) {
+        // Generate a unique session token and append it to the URL
         const sessionToken = Date.now().toString();
-        res.cookie('sessionToken', sessionToken, { httpOnly: true });
-        return res.redirect('/'); // Redirect to set the session token
+        return res.redirect(`/?sessionToken=${sessionToken}`); // Redirect to set the session token in the query parameter
       }
       return next(); // Proceed to the requested route if authenticated
     }
@@ -43,6 +42,7 @@ app.use(express.static('public'));
 
 // Default route
 app.get('/', (req, res) => {
+  const sessionToken = req.query.sessionToken;
   res.sendFile(__dirname + '/public/index.html');
 });
 
