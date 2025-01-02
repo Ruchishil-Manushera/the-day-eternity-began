@@ -1,4 +1,5 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -12,7 +13,10 @@ app.use((req, res, next) => {
   next();
 });
 
-// Middleware: Basic Authentication
+// Middleware: Parse cookies
+app.use(cookieParser());
+
+// Middleware: Basic Authentication with session token
 app.use((req, res, next) => {
   const authHeader = req.headers.authorization || '';
   const [type, credentials] = authHeader.split(' ');
@@ -22,11 +26,26 @@ app.use((req, res, next) => {
 
     // Check if login and password match
     if (login === auth.login && password === auth.password) {
+      // Generate a unique session token and set it as a cookie
+      const sessionToken = Date.now().toString();
+      res.cookie('sessionToken', sessionToken, { httpOnly: true });
       return next(); // Proceed to the requested route if authenticated
     }
   }
 
   // If authentication fails, ask for credentials
+  res.setHeader('WWW-Authenticate', 'Basic realm="Protected Area", charset="UTF-8"');
+  res.status(401).send('Authentication required.');
+});
+
+// Middleware: Check session token
+app.use((req, res, next) => {
+  const sessionToken = req.cookies.sessionToken;
+  if (sessionToken) {
+    return next(); // Proceed if session token is present
+  }
+
+  // If no session token, ask for authentication
   res.setHeader('WWW-Authenticate', 'Basic realm="Protected Area", charset="UTF-8"');
   res.status(401).send('Authentication required.');
 });
